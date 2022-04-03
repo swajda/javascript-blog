@@ -50,14 +50,15 @@ function generateTitleLinks(){
 
 function generateTags(){
   const articles = document.querySelectorAll(optArticleSelector);
-  let html = '';
+
   for(const article of articles){
+    let html = '';
     const tagList = article.querySelector(optArticleTagsSelector);
     const articleTags = article.getAttribute('data-tags');
     const articleTagsArray = articleTags.split(' ');
     for(let tag of articleTagsArray){
 
-      const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + ',</span></a></li>';
+      const linkHTML = '<li><a href="#tag-' + tag + '"><span> ' + tag + ' ,</span></a></li>';
       html = html + linkHTML;
       console.log(html);
     }
