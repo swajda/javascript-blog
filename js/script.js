@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 function titleClickHandler(event){
@@ -5,16 +6,16 @@ function titleClickHandler(event){
     const clickedElement = this;
     console.log('Link was clicked!');
     console.log(event);
-    
+
     const activeLinks = document.querySelectorAll('.titles a.active');
 
     for(let activeLink of activeLinks){
         activeLink.classList.remove('active');
     }
-    
+
     console.log('clickedElement:', clickedElement);
     clickedElement.classList.add('active')
-    
+
     const activeArticles = document.querySelectorAll('.posts .active');
 
     for(let activeArticle of activeArticles){
@@ -22,13 +23,13 @@ function titleClickHandler(event){
     }
 
     const getHref = clickedElement.getAttribute('href');
-    console.log(getHref);   
+    console.log(getHref);
     const targetArticle = document.querySelector(getHref);
-    console.log(targetArticle);    
+    console.log(targetArticle);
     targetArticle.classList.add('active')
 }
-  
-  
+
+
 
   const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
@@ -61,5 +62,5 @@ function generateTitleLinks(){
   for(let link of links){
     link.addEventListener('click', titleClickHandler);
   }
-} 
+}
 generateTitleLinks();
