@@ -62,5 +62,4 @@ function generateTitleLinks(){
     link.addEventListener('click', titleClickHandler);
   }
 } 
-
 generateTitleLinks();
