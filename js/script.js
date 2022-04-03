@@ -68,7 +68,6 @@ function generateTags(){
     event.preventDefault();
     const clickedElement = this,
       href = clickedElement.getAttribute('href'),
-      //tag = href.getAttribute('#tag-'),
       tag =  href.replace('#tag-', ''),
       activeTags = document.querySelectorAll('a.active[href^="#tag-"]');
 
@@ -100,10 +99,11 @@ function generateTags(){
 
   function addClickListenersToTags(){
 
-    const tagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
+    const tagLinks = document.querySelectorAll('a[href^="#tag-"]');
       for(let tagLink of tagLinks){
         tagLink.addEventListener('click', tagClickHandler);
       }
+      console.log(tagLinks);
     /* find all links to tags */
     /* START LOOP: for each link */
       /* add tagClickHandler as event listener for that link */
@@ -116,3 +116,4 @@ function generateTags(){
 generateTitleLinks();
 generateTags();
 addClickListenersToTags();
+
