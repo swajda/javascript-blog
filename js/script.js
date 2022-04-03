@@ -71,14 +71,14 @@ function generateTags(){
       //tag = href.getAttribute('#tag-'),
       tag =  href.replace('#tag-', ''),
       activeTags = document.querySelectorAll('a.active[href^="#tag-"]');
-      console.log(tag);
-      for(const activeTag of activeTags){
+
+      for(let activeTag of activeTags){
         activeTag.classList.remove('active');
       }
 
       const tagLinks = document.querySelectorAll('a[href="' + href + '"]');
 
-      for(const tagLink of tagLinks){
+      for(let tagLink of tagLinks){
         tagLink.classList.add('active');
       }
       generateTitleLinks('[data-tags~="' + tag + '"]');
@@ -99,8 +99,9 @@ function generateTags(){
   }
 
   function addClickListenersToTags(){
+
     const tagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
-      for(const tagLink of tagLinks){
+      for(let tagLink of tagLinks){
         tagLink.addEventListener('click', tagClickHandler);
       }
     /* find all links to tags */
@@ -111,6 +112,7 @@ function generateTags(){
 
 
 
-addClickListenersToTags();
+
 generateTitleLinks();
 generateTags();
+addClickListenersToTags();
