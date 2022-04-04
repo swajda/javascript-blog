@@ -110,7 +110,7 @@ function generateTags(){
       event.preventDefault();
       const clickedElement = this,
         href = clickedElement.getAttribute('href'),
-        tag =  href.replace('#author-', ''),
+        author =  href.replace('#author-', ''),
         activeAuthors = document.querySelectorAll('a.active[href^="#author-"]');
       console.log(href);
         for(let activeAuthor of activeAuthors){
@@ -122,7 +122,7 @@ function generateTags(){
         for(let authorLink of authorLinks){
           authorLink.classList.add('active');
         }
-        generateTitleLinks('[data-author="' + tag + '"]');
+        generateTitleLinks('[data-author="' + author + '"]');
     }
 
     function addClickListenersToAuthors(){
