@@ -27,7 +27,8 @@ function titleClickHandler(event){
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list',
-    optAuthorSelector = '.post-author';
+    optAuthorSelector = '.post-author',
+    optTagsListSelector = '.tags.list';
 
 function generateTitleLinks(customSelector = ''){
   const titleList = document.querySelector(optTitleListSelector);
@@ -51,18 +52,35 @@ function generateTitleLinks(customSelector = ''){
 
 function generateTags(){
   const articles = document.querySelectorAll(optArticleSelector);
+  let allTags = {};
 
   for(const article of articles){
     let html = '';
-    const tagList = article.querySelector(optArticleTagsSelector);
+    const tagListOne = article.querySelector(optArticleTagsSelector);
     const articleTags = article.getAttribute('data-tags');
     const articleTagsArray = articleTags.split(' ');
+
     for(let tag of articleTagsArray){
       const linkHTML = '<li><a href="#tag-' + tag + '"><span> ' + tag + ' ,</span></a></li>';
       html = html + linkHTML;
 
+      if(!allTags.hasOwnProperty(tag)){
+        allTags[tag] = 1;
+      } else {
+        allTags[tag]++;
+      }
     }
-    tagList.innerHTML = html;
+    tagListOne.innerHTML = html;
+    const tagList = document.querySelector(optTagsListSelector);
+    let allTagsHTML = '';
+
+    for(let tag in allTags){
+
+      allTagsHTML += tag + ' (' + allTags[tag] + ') ';
+
+      }
+    tagList.innerHTML = allTagsHTML;
+      console.log(tagList.innerHTML);
   }
 }
   function tagClickHandler(event){
