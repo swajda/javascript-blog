@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 /* eslint-disable no-undef */
 'use strict';
 
@@ -49,6 +50,9 @@ function generateTitleLinks(customSelector = ''){
     link.addEventListener('click', titleClickHandler);
   }
 }
+/*function calculateTagsParams(){
+  const tags =
+}*/
 
 function generateTags(){
   const articles = document.querySelectorAll(optArticleSelector);
@@ -71,17 +75,22 @@ function generateTags(){
       }
     }
     tagListOne.innerHTML = html;
+}
     const tagList = document.querySelector(optTagsListSelector);
+    //const tagsParams = calculateTagsParams(allTags);
+    //console.log(tagsParams);
+
     let allTagsHTML = '';
 
     for(let tag in allTags){
-
       allTagsHTML += tag + ' (' + allTags[tag] + ') ';
-
+      const linkHTML = '<li><a href="#tag-' + tag + '"><span> ' + tag + ' ,</span></a></li>';
+      allTagsHTML += linkHTML;
+      console.log(allTagsHTML);
       }
     tagList.innerHTML = allTagsHTML;
-      console.log(tagList.innerHTML);
-  }
+
+
 }
   function tagClickHandler(event){
     event.preventDefault();
