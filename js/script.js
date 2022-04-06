@@ -83,8 +83,8 @@ function generateTags(){
     let allTagsHTML = '';
 
     for(let tag in allTags){
-      allTagsHTML += tag + ' (' + allTags[tag] + ') ';
-      const linkHTML = '<li><a href="#tag-' + tag + '"><span> ' + tag + ' ,</span></a></li>';
+      //allTagsHTML += tag + ' (' + allTags[tag] + ') ';
+      const linkHTML = '<li><a href="#tag-' + tag + '"><span> ' + tag + ' (' + allTags[tag] + ') ' + '</span></a></li>';
       allTagsHTML += linkHTML;
       console.log(allTagsHTML);
       }
