@@ -240,7 +240,9 @@
     </div>
   </div>
   <script id="template-author-cloud-link" type="text/x-handlebars-template">
-    asd
+    {{#each authors}}
+      <li><a href="#author-{{ author }}">{{ author }}</a><span> ({{ count }})</span></li>
+      {{/each}}
   </script>
   <script id="template-tag-cloud-link" type="text/x-handlebars-template">
       {{#each tags}}

@@ -184,15 +184,21 @@ function generateAuthors() {
   }
   const authorList = document.querySelector(optAuthorsListSelector);
 
-  let allAuthorsHTML = '';
+  //  --> let allAuthorsHTML = '';
+  const allAuthorsData = {authors: []};
 
   for(let author in allAuthors) {
-    const linkHTML = '<li>' + allAuthors[author].html + ' (' + allAuthors[author].count + ')</li>';
-    allAuthorsHTML += linkHTML;
-    console.log(allAuthorsHTML);
+    //const linkHTML = '<li>' + allAuthors[author].html + ' (' + allAuthors[author].count + ')</li>';
+    // --> allAuthorsHTML += linkHTML;
+    allAuthorsData.authors.push({
+      author: author,
+      count: allAuthors[author],
+    });
+
   }
 
-  authorList.innerHTML = allAuthorsHTML;
+  authorList.innerHTML = templates.authorCloudLink(allAuthorsData);
+  console.log(allAuthorsData);
 }
 
 
