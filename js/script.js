@@ -186,19 +186,20 @@ function generateAuthors() {
 
   //  --> let allAuthorsHTML = '';
   const allAuthorsData = {authors: []};
+  console.log(allAuthorsData);
 
   for(let author in allAuthors) {
     //const linkHTML = '<li>' + allAuthors[author].html + ' (' + allAuthors[author].count + ')</li>';
     // --> allAuthorsHTML += linkHTML;
     allAuthorsData.authors.push({
       author: author,
-      count: allAuthors[author],
+      count: allAuthors[author].count,
     });
 
   }
 
   authorList.innerHTML = templates.authorCloudLink(allAuthorsData);
-  console.log(allAuthorsData);
+
 }
 
 
